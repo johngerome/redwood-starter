@@ -2,7 +2,7 @@ export async function requireAuth({
   ctx,
   request,
 }: {
-  ctx: { user: unknown };
+  ctx: { user?: unknown };
   request: Request;
 }) {
   if (!ctx.user) {
