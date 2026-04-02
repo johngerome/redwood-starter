@@ -45,12 +45,17 @@ pnpm run migrate:prod
 pnpm run release
 ```
 
-### Cloudflare API Token Setup
+### GitHub Secrets
 
 > [!NOTE]
-> The `CLOUDFLARE_API_TOKEN` secret is required for CI deployment.
+> The following secrets are required for CI deployment.
 
-To create one:
+| Secret                  | Description                          |
+| ----------------------- | ------------------------------------ |
+| `CLOUDFLARE_API_TOKEN`  | API token with Workers and D1 access |
+| `CLOUDFLARE_ACCOUNT_ID` | Your Cloudflare account ID           |
+
+#### Cloudflare API Token
 
 1. Go to [Cloudflare Dashboard → API Tokens](https://dash.cloudflare.com/profile/api-tokens)
 2. Click **Create Token**
@@ -58,10 +63,16 @@ To create one:
 4. Add the following permission: **Account → Cloudflare D1 → Edit**
 5. Save the token
 
-Then add it to your GitHub repository:
+#### Cloudflare Account ID
+
+1. Go to the [Cloudflare Dashboard](https://dash.cloudflare.com/)
+2. Select your account → **Workers & Pages**
+3. Copy the **Account ID** from the right sidebar
+
+#### Adding secrets to GitHub
 
 1. Go to **Settings → Environments → Production**
-2. Add a secret named `CLOUDFLARE_API_TOKEN` with the token value
+2. Add both `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`
 
 ## Further Reading
 
