@@ -84,7 +84,7 @@ export function SignupForm({ ...props }: React.ComponentProps<typeof Card>) {
             {serverError && (
               <p className="text-sm text-destructive">{serverError}</p>
             )}
-            <FieldGroup className="flex-row">
+            <FieldGroup className="md:flex-row">
               <Controller
                 name="firstName"
                 control={form.control}
