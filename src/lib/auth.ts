@@ -10,6 +10,7 @@ export const auth = betterAuth({
     provider: "sqlite",
     schema,
   }),
+  trustedProxies: ["cloudflare"],
   plugins: [
     captcha({
       provider: "cloudflare-turnstile",
@@ -19,6 +20,7 @@ export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
     requireEmailVerification: true,
+    rounds: 8,
   },
   emailVerification: {
     sendVerificationEmail: async ({ user, url }) => {
