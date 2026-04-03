@@ -10,7 +10,11 @@ export const auth = betterAuth({
     provider: "sqlite",
     schema,
   }),
-  trustedProxies: ["cloudflare"],
+  advanced: {
+    ipAddress: {
+      ipAddressHeaders: ["cf-connecting-ip", "x-forwarded-for"],
+    },
+  },
   plugins: [
     captcha({
       provider: "cloudflare-turnstile",
