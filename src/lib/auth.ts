@@ -28,7 +28,7 @@ export const auth = betterAuth({
   },
   emailVerification: {
     sendVerificationEmail: async ({ user, url }) => {
-      void env.EMAIL_QUEUE.send({
+      await env.EMAIL_QUEUE.send({
         type: "VERIFY_USER_EMAIL",
         email: user.email,
         url,
